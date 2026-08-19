@@ -16,11 +16,11 @@ for (let i = 0; i < rest.length; i++) {
 function usage(): void {
   console.log(`8gnc — free, MIT-licensed skill plugins from Branded Mayhem Collective (https://8gnc.io/products)
 
-  npx 8gnc                      list the catalog
-  npx 8gnc add <plugin>         install into ./.claude/skills
-  npx 8gnc add <plugin> -g      install into ~/.claude/skills
-  npx 8gnc add <plugin> --into <dir>   any folder that reads SKILL.md (Codex, Cursor, your agent)
-  npx 8gnc add all [-g]         everything in the catalog`);
+  npx @8gnc/skills                      list the catalog
+  npx @8gnc/skills add <plugin>         install into ./.claude/skills
+  npx @8gnc/skills add <plugin> -g      install into ~/.claude/skills
+  npx @8gnc/skills add <plugin> --into <dir>   any folder that reads SKILL.md (Codex, Cursor, your agent)
+  npx @8gnc/skills add all [-g]         everything in the catalog`);
 }
 
 try {
@@ -29,7 +29,7 @@ try {
   if (cmd === "list") {
     console.log("Catalog (source: contraband marketplace on GitHub):\n");
     for (const p of catalog) console.log(`  ${p.name.padEnd(26)} ${p.description ?? ""}`);
-    console.log(`\nInstall: npx 8gnc add <plugin>   ·   details: https://8gnc.io/products`);
+    console.log(`\nInstall: npx @8gnc/skills add <plugin>   ·   details: https://8gnc.io/products`);
     process.exit(0);
   }
   if (cmd === "add") {
@@ -37,7 +37,7 @@ try {
     if (!want) { usage(); process.exit(2); }
     const target = resolveTarget({ global: !!flags.global, into: typeof flags.into === "string" ? flags.into : undefined });
     const picks = want === "all" ? catalog : catalog.filter(p => p.name === want);
-    if (!picks.length) { console.error(`unknown plugin "${want}". Run: npx 8gnc`); process.exit(1); }
+    if (!picks.length) { console.error(`unknown plugin "${want}". Run: npx @8gnc/skills`); process.exit(1); }
     for (const p of picks) {
       const skills = await installPlugin(p, target);
       console.log(`✓ ${p.name}: ${skills.length} skill${skills.length === 1 ? "" : "s"} → ${target}\n    ${skills.join(", ")}`);

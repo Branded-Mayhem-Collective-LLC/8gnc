@@ -3,10 +3,10 @@
 The free, MIT-licensed skill plugins from [Branded Mayhem Collective](https://brandedmayhem.com) — brand strategy, product strategy, content, SEO, conversion, sales — installable in one command into Claude Code, Codex, Cursor, or any agent that reads `SKILL.md` folders.
 
 ```bash
-npx 8gnc                         # list the catalog
-npx 8gnc add brandprint-engine   # install into ./.claude/skills
-npx 8gnc add all -g              # everything, into ~/.claude/skills
-npx 8gnc add seo-visibility-toolkit --into ~/.codex/skills
+npx @8gnc/skills                         # list the catalog
+npx @8gnc/skills add brandprint-engine   # install into ./.claude/skills
+npx @8gnc/skills add all -g              # everything, into ~/.claude/skills
+npx @8gnc/skills add seo-visibility-toolkit --into ~/.codex/skills
 ```
 
 The catalog of record is the [contraband marketplace](https://github.com/Branded-Mayhem-Collective-LLC/contraband-marketplace) manifest — the same file Claude Code's `/plugin marketplace` reads — so this CLI can't drift from it. Each plugin is its own public repo; `add` downloads the repo and copies its `skills/` folders. No account, no telemetry, no runtime dependencies.

@@ -1,5 +1,5 @@
 {
-  "name": "8gnc",
+  "name": "@8gnc/skills",
   "version": "0.1.0",
   "description": "8gnc \u2014 install the free, MIT-licensed Branded Mayhem skill plugins (brand strategy, product strategy, content, SEO, conversion, sales) into Claude Code, Codex or Cursor. `npx 8gnc` lists the catalog; `npx 8gnc add <plugin>` installs it.",
   "type": "module",
@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Branded-Mayhem-Collective-LLC/8gnc"
+    "url": "git+https://github.com/Branded-Mayhem-Collective-LLC/8gnc.git"
   },
   "homepage": "https://8gnc.io/products",
   "engines": {
